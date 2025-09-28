@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "ScrollTrapTest",
-    "slug": "ScrollTrapTest",
+    "slug": "scrolltrap",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -52,7 +52,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "7659d9e9-b246-4414-9a18-1ac09aefd51a"
+        "projectId": "d0d47ce7-e6fd-4480-8894-0f23687cb058"
       }
     },
     "runtimeVersion": {
@@ -60,6 +60,7 @@
     },
     "updates": {
       "url": "https://u.expo.dev/7659d9e9-b246-4414-9a18-1ac09aefd51a"
-    }
+    },
+    "owner": "dark-tech-scrolltrap"
   }
 }
