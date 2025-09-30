@@ -82,6 +82,9 @@ https://www.youtube.com/watch?v=uQCE9zl3dXU
 **Manage branches and channels with EAS CLI:**
 https://docs.expo.dev/eas-update/eas-cli/
 
+**Nativewind**
+https://www.nativewind.dev/ 
+
 ### Extra info voor android of ios
 
 EAS staat voor Expo Application Services. Hiermee kan je een native build maken van je app:
