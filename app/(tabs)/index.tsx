@@ -1,8 +1,9 @@
-import { Text, View } from "react-native";
+import ColorList from "@/components/color-list";
+import { View } from "react-native";
 
 export default function HomeScreen() {
   return (
     <View>
-      <Text>Home</Text>
+      <ColorList color="blue" />
     </View>
   )}
