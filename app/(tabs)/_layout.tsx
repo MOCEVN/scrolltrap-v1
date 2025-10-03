@@ -61,7 +61,7 @@ export default function Layout() {
       <View style={styles.content}>
         <View style={styles.searchContainer}>
           <View style={styles.searchInputContainer}>
-            <IconSymbol name="magnifyingglass" size={20} color="#aaa" />
+            <IconSymbol name="magnifyingglass" size={16} color="#aaa" />
             <TextInput
               style={styles.searchInput}
               placeholder="Search..."
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   sidebar: {
-    width: 90,
+    width: 60,
     backgroundColor: "#111",
     paddingVertical: 20,
     justifyContent: "flex-start",
@@ -106,25 +106,28 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   searchContainer: {
-    padding: 10,
-    backgroundColor: "#000", 
+    padding: 8,
+    backgroundColor: "#000",
     borderBottomWidth: 1,
     borderBottomColor: "#000",
+    paddingHorizontal: 10,
   },
   searchInputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#333", 
-    borderRadius: 8,
+    backgroundColor: "#333",
+    borderRadius: 6,
     borderWidth: 1,
-    borderColor: "#555", 
-    paddingHorizontal: 10,
+    borderColor: "#555",
+    paddingHorizontal: 12,
+    width: 500, 
+    paddingVertical: 4,
   },
   searchInput: {
     flex: 1,
-    paddingVertical: 8,
-    fontSize: 16,
-    marginLeft: 8,
-    color: "#fff", 
+    paddingVertical: 6,
+    fontSize: 14,
+    marginLeft: 6,
+    color: "#fff",
   },
 });
