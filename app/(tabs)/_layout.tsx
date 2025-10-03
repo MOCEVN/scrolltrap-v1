@@ -1,7 +1,7 @@
 import { IconSymbol, IconSymbolName } from "@/components/ui/icon-symbol";
 import { Slot, usePathname, useRouter } from "expo-router";
-import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 type RouteName = "index" | "explore" | "create" | "profile";
 
@@ -14,6 +14,7 @@ interface Route {
 export default function Layout() {
   const router = useRouter();
   const pathname = usePathname();
+  const [searchQuery, setSearchQuery] = useState("");
 
   const routes: Route[] = [
     { name: "index", label: "Home", icon: "house.fill" },
@@ -25,6 +26,13 @@ export default function Layout() {
   const handlePress = (routeName: RouteName) => {
     const path = routeName === "index" ? "/" : `/${routeName}` as const;
     router.push(path);
+  };
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      // Example: Navigate to explore with query
+      router.push(`/explore?query=${searchQuery}`);
+    }
   };
 
   return (
@@ -41,19 +49,31 @@ export default function Layout() {
               style={[styles.tab]}
             >
               <IconSymbol
-                name={route.icon} // Now typed as IconSymbolName
+                name={route.icon}
                 size={24}
                 color={isActive ? "#fff" : "#aaa"}
               />
-              <Text style={[styles.label]}>
-                {route.label}
-              </Text>
+              <Text style={[styles.label]}>{route.label}</Text>
             </TouchableOpacity>
           );
         })}
       </View>
 
       <View style={styles.content}>
+        <View style={styles.searchContainer}>
+          <View style={styles.searchInputContainer}>
+            <IconSymbol name="magnifyingglass" size={20} color="#aaa" />
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Search..."
+              placeholderTextColor="#aaa"
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              onSubmitEditing={handleSearch}
+              returnKeyType="search"
+            />
+          </View>
+        </View>
         <Slot />
       </View>
     </View>
@@ -78,15 +98,34 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 8,
   },
-
   label: {
     fontSize: 12,
     color: "#aaa",
     marginTop: 4,
   },
-
   content: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  searchContainer: {
+    padding: 10,
+    backgroundColor: "#f5f5f5",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
+  },
+  searchInputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    paddingHorizontal: 10,
+  },
+  searchInput: {
+    flex: 1,
+    paddingVertical: 8,
+    fontSize: 16,
+    marginLeft: 8,
   },
 });
