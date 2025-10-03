@@ -1,9 +1,9 @@
 import ColorList from "@/components/color-list";
 import { View } from "react-native";
 
-export default function Explore() {
+export default function Create() {
   return (
     <View>
-      <ColorList color="yellow" />
+      <ColorList color="blueviolet" />
     </View>
   )}
