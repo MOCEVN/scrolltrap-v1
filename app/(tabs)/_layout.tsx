@@ -30,7 +30,6 @@ export default function Layout() {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      // Example: Navigate to explore with query
       router.push(`/explore?query=${searchQuery}`);
     }
   };
@@ -105,21 +104,20 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: "#fff",
   },
   searchContainer: {
     padding: 10,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#000", 
     borderBottomWidth: 1,
-    borderBottomColor: "#ddd",
+    borderBottomColor: "#000",
   },
   searchInputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#333", 
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#555", 
     paddingHorizontal: 10,
   },
   searchInput: {
@@ -127,5 +125,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     fontSize: 16,
     marginLeft: 8,
+    color: "#fff", 
   },
 });
