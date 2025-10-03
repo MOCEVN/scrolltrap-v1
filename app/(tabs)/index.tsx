@@ -40,7 +40,7 @@ export default function HomeScreen() {
           {likedCount > 0 && (
             <TouchableOpacity
               onPress={handleToggleShowLiked}
-              className={`px-4 py-2.5 rounded-full flex-row items-center gap-2 ${
+              className={`px-2 rounded-full flex-row items-center gap-2 ${
                 showLikedOnly ? "bg-pink-500" : "bg-pink-50"
               }`}
               style={{
