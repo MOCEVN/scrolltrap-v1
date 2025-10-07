@@ -50,13 +50,13 @@ export default function HomeScreen() {
                 shadowRadius: 3,
                 elevation: 3,
               }}
-            >
+            ><Text>Show likes</Text>
               <Text
                 className={`text-base font-bold ${
                   showLikedOnly ? "text-white" : "text-pink-600"
                 }`}
               >
-                ❤️ {likedCount}
+               ❤️ {likedCount}
               </Text>
               {showLikedOnly && (
                 <Text className="text-white text-xs font-medium">Viewing</Text>

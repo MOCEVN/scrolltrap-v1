@@ -3,7 +3,7 @@ import { Slot, usePathname, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
-type RouteName = "index" | "explore" | "create" | "profile";
+type RouteName = "index" | "explore" | "create" | "profile" | "info";
 
 interface Route {
   name: RouteName;
@@ -21,6 +21,7 @@ export default function Layout() {
     { name: "explore", label: "Explore", icon: "magnifyingglass" },
     { name: "create", label: "Create", icon: "plus.circle.fill" },
     { name: "profile", label: "Profile", icon: "person.fill" },
+    { name: "info", label: "Info", icon: "info" },
   ];
 
   const handlePress = (routeName: RouteName) => {
@@ -37,7 +38,7 @@ export default function Layout() {
   return (
     <View className="flex-1 flex-row">
       {/* Sidebar */}
-      <View className="w-[90] bg-[#111] py-5 justify-start items-center">
+      <View className="w-[90] bg-dark py-5 justify-start items-center">
         {routes.map((route) => {
           const isActive =
             pathname === `/${route.name}` ||
@@ -58,12 +59,12 @@ export default function Layout() {
           );
         })}
       </View>
-
+      
       {/* Content */}
       <View className="flex-1">
         {/* Search bar */}
-        <View className="p-2 bg-black border-b border-b-black px-3">
-          <View className="flex-row items-center bg-[#333] rounded-md border border-[#555] px-3 py-1 w-[500]">
+        <View className="flex-row items-center justify-between p-2 bg-dark border-b border-b-black px-3">
+          <View className="flex-row items-center justify-between bg-[#333] rounded-md border border-[#555] px-4 py-1 w-[400]">
             <IconSymbol name="magnifyingglass" size={16} color="#aaa" />
             <TextInput
               className="flex-1 py-1.5 text-sm ml-1.5 text-white"
@@ -75,8 +76,10 @@ export default function Layout() {
               returnKeyType="search"
             />
           </View>
+           <TouchableOpacity className="mr-10">
+            <IconSymbol name="bubble.left.and.bubble.right.fill" size={24} color="#fff" />
+          </TouchableOpacity>
         </View>
-
         <Slot />
       </View>
     </View>
