@@ -1,9 +1,9 @@
 import { IconSymbol, IconSymbolName } from "@/components/ui/icon-symbol";
 import { Slot, usePathname, useRouter } from "expo-router";
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
-type RouteName = "index" | "explore" | "create" | "profile";
+type RouteName = "index" | "explore" | "create" | "profile" | "info";
 
 interface Route {
   name: RouteName;
@@ -21,6 +21,7 @@ export default function Layout() {
     { name: "explore", label: "Explore", icon: "magnifyingglass" },
     { name: "create", label: "Create", icon: "plus.circle.fill" },
     { name: "profile", label: "Profile", icon: "person.fill" },
+    { name: "info", label: "Info", icon: "info" },
   ];
 
   const handlePress = (routeName: RouteName) => {
@@ -35,8 +36,9 @@ export default function Layout() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.sidebar}>
+    <View className="flex-1 flex-row">
+      {/* Sidebar */}
+      <View className="w-[90] bg-dark py-5 justify-start items-center">
         {routes.map((route) => {
           const isActive =
             pathname === `/${route.name}` ||
@@ -45,25 +47,27 @@ export default function Layout() {
             <TouchableOpacity
               key={route.name}
               onPress={() => handlePress(route.name)}
-              style={[styles.tab]}
+              className="my-3 justify-center items-center p-2"
             >
               <IconSymbol
                 name={route.icon}
                 size={24}
                 color={isActive ? "#fff" : "#aaa"}
               />
-              <Text style={[styles.label]}>{route.label}</Text>
+              <Text className="text-xs text-[#aaa] mt-1">{route.label}</Text>
             </TouchableOpacity>
           );
         })}
       </View>
-
-      <View style={styles.content}>
-        <View style={styles.searchContainer}>
-          <View style={styles.searchInputContainer}>
+      
+      {/* Content */}
+      <View className="flex-1">
+        {/* Search bar */}
+        <View className="flex-row items-center justify-between p-2 bg-dark border-b border-b-black px-3">
+          <View className="flex-row items-center justify-between bg-[#333] rounded-md border border-[#555] px-4 py-1 w-[400]">
             <IconSymbol name="magnifyingglass" size={16} color="#aaa" />
             <TextInput
-              style={styles.searchInput}
+              className="flex-1 py-1.5 text-sm ml-1.5 text-white"
               placeholder="Search..."
               placeholderTextColor="#aaa"
               value={searchQuery}
@@ -72,62 +76,12 @@ export default function Layout() {
               returnKeyType="search"
             />
           </View>
+           <TouchableOpacity className="mr-10">
+            <IconSymbol name="bubble.left.and.bubble.right.fill" size={24} color="#fff" />
+          </TouchableOpacity>
         </View>
         <Slot />
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-  },
-  sidebar: {
-    width: 60,
-    backgroundColor: "#111",
-    paddingVertical: 20,
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-  tab: {
-    marginVertical: 12,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 8,
-  },
-  label: {
-    fontSize: 12,
-    color: "#aaa",
-    marginTop: 4,
-  },
-  content: {
-    flex: 1,
-  },
-  searchContainer: {
-    padding: 8,
-    backgroundColor: "#000",
-    borderBottomWidth: 1,
-    borderBottomColor: "#000",
-    paddingHorizontal: 10,
-  },
-  searchInputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#333",
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: "#555",
-    paddingHorizontal: 12,
-    width: 500, 
-    paddingVertical: 4,
-  },
-  searchInput: {
-    flex: 1,
-    paddingVertical: 6,
-    fontSize: 14,
-    marginLeft: 6,
-    color: "#fff",
-  },
-});

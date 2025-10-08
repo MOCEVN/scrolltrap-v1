@@ -19,6 +19,8 @@ const MAPPING = {
   'magnifyingglass': 'search',
   'plus.circle.fill': 'add-circle',
   'person.fill': 'person',
+  "bubble.left.and.bubble.right.fill" : "chat-bubble",
+  "info" : "info"
 } as IconMapping;
 
 /**
