@@ -85,6 +85,8 @@ https://docs.expo.dev/eas-update/eas-cli/
 **Nativewind**
 https://www.nativewind.dev/ 
 
+https://docs.expo.dev/versions/latest/sdk/async-storage/ 
+
 ### Extra info voor android of ios
 
 EAS staat voor Expo Application Services. Hiermee kan je een native build maken van je app:

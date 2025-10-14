@@ -12,6 +12,7 @@ type IconSymbolName = keyof typeof MAPPING;
  * - See SF Symbols in the [SF Symbols](https://developer.apple.com/sf-symbols/) app.
  */
 const MAPPING = {
+  // Basis
   'house.fill': 'home',
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
@@ -19,9 +20,91 @@ const MAPPING = {
   'magnifyingglass': 'search',
   'plus.circle.fill': 'add-circle',
   'person.fill': 'person',
-  "bubble.left.and.bubble.right.fill" : "chat-bubble",
-  "info" : "info"
+  'bubble.left.and.bubble.right.fill': 'chat-bubble',
+  'info': 'info',
+
+  // Navigatie & UI
+  'arrow.left': 'arrow-back',
+  'arrow.right': 'arrow-forward',
+  'arrow.up': 'arrow-upward',
+  'arrow.down': 'arrow-downward',
+  'arrow.uturn.left': 'undo',
+  'arrow.uturn.right': 'redo',
+  'xmark': 'close',
+  'checkmark': 'check',
+  'gear': 'settings',
+  'bell.fill': 'notifications',
+  'bell.slash': 'notifications-off',
+  'bookmark.fill': 'bookmark',
+  'heart.fill': 'favorite',
+  'heart': 'favorite-border',
+  'star.fill': 'star',
+  'star': 'star-border',
+  'trash.fill': 'delete',
+  'pencil': 'edit',
+  'square.and.pencil': 'edit-note',
+  'square.and.arrow.up': 'share',
+  'eye.fill': 'visibility',
+  'eye.slash.fill': 'visibility-off',
+
+  // Media
+  'play.fill': 'play-arrow',
+  'pause.fill': 'pause',
+  'stop.fill': 'stop',
+  'backward.fill': 'fast-rewind',
+  'forward.fill': 'fast-forward',
+  'speaker.wave.2.fill': 'volume-up',
+  'speaker.slash.fill': 'volume-off',
+  'music.note': 'music-note',
+
+  // Communicatie
+  'phone.fill': 'phone',
+  'envelope.fill': 'mail',
+  'message.fill': 'message',
+  'video.fill': 'videocam',
+  'mic.fill': 'mic',
+  'mic.slash.fill': 'mic-off',
+
+  // Systeem & status
+  'wifi': 'wifi',
+  'battery.100': 'battery-full',
+  'battery.25': 'battery-alert',
+  'bolt.fill': 'flash-on',
+  'cloud.fill': 'cloud',
+  'cloud.sun.fill': 'wb-sunny',
+  'moon.fill': 'dark-mode',
+
+  // Documenten & data
+  'doc.fill': 'description',
+  'folder.fill': 'folder',
+  'paperclip': 'attach-file',
+  'calendar': 'calendar-today',
+  'chart.bar.fill': 'bar-chart',
+  'chart.pie.fill': 'pie-chart',
+
+  // Personen & locaties
+  'person.2.fill': 'group',
+  'person.crop.circle.badge.plus': 'person-add',
+  'location.fill': 'location-on',
+  'map.fill': 'map',
+  'globe': 'public',
+
+  // Commerce / Shopping
+  'cart.fill': 'shopping-cart',
+  'bag.fill': 'shopping-bag',
+  'creditcard.fill': 'credit-card',
+
+  // Divers
+  'questionmark.circle.fill': 'help',
+  'exclamationmark.triangle.fill': 'warning',
+  'lock.fill': 'lock',
+  'lock.open.fill': 'lock-open',
+  'bolt': 'flash-on',
+  'leaf.fill': 'eco',
+  'clock.fill': 'access-time',
+  'tag.fill': 'local-offer',
 } as IconMapping;
+
 
 /**
  * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.

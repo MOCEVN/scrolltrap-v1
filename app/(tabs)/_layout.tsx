@@ -1,7 +1,7 @@
 import { IconSymbol, IconSymbolName } from "@/components/ui/icon-symbol";
 import { Slot, usePathname, useRouter } from "expo-router";
 import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Linking, Pressable, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 type RouteName = "index" | "explore" | "create" | "profile" | "info";
 
@@ -15,6 +15,10 @@ export default function Layout() {
   const router = useRouter();
   const pathname = usePathname();
   const [searchQuery, setSearchQuery] = useState("");
+
+  const openUrl = () => {
+    Linking.openURL("https://forms.gle/Ssj6fnxCniLZHobNA");
+  };
 
   const routes: Route[] = [
     { name: "index", label: "Home", icon: "house.fill" },
@@ -36,9 +40,9 @@ export default function Layout() {
   };
 
   return (
-    <View className="flex-1 flex-row">
+    <View className="flex-1 flex-row bg-dark">
       {/* Sidebar */}
-      <View className="w-[90] bg-dark py-5 justify-start items-center">
+      <View className="w-[90] bg-dark py-5 justify-start items-center border-r border-[#222]">
         {routes.map((route) => {
           const isActive =
             pathname === `/${route.name}` ||
@@ -59,12 +63,14 @@ export default function Layout() {
           );
         })}
       </View>
-      
+
       {/* Content */}
       <View className="flex-1">
-        {/* Search bar */}
-        <View className="flex-row items-center justify-between p-2 bg-dark border-b border-b-black px-3">
-          <View className="flex-row items-center justify-between bg-[#333] rounded-md border border-[#555] px-4 py-1 w-[400]">
+        {/* Top bar */}
+        <View className="flex-row flex-wrap items-center justify-between gap-2 p-2 bg-dark border-b border-b-black px-3">
+          
+          {/* 🔍 Responsive Searchbar */}
+          <View className="flex-1 min-w-[160px] max-w-[500px] flex-row items-center bg-[#333] rounded-md border border-[#555] px-4 my-2">
             <IconSymbol name="magnifyingglass" size={16} color="#aaa" />
             <TextInput
               className="flex-1 py-1.5 text-sm ml-1.5 text-white"
@@ -76,10 +82,23 @@ export default function Layout() {
               returnKeyType="search"
             />
           </View>
-           <TouchableOpacity className="mr-10">
+
+          {/* 🧾 Google Form button */}
+          <Pressable
+            onPress={openUrl}
+            className="flex-row items-center space-x-2 active:opacity-70"
+          >
+            <Text className="text-white text-base">Google Form</Text>
+            <IconSymbol name="doc.fill" size={24} color="#fff" />
+          </Pressable>
+
+          {/* 💬 Chat icon */}
+          <TouchableOpacity className="mr-2 active:opacity-70">
             <IconSymbol name="bubble.left.and.bubble.right.fill" size={24} color="#fff" />
           </TouchableOpacity>
         </View>
+
+        {/* Page content */}
         <Slot />
       </View>
     </View>
