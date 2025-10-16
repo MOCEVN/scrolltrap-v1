@@ -1,7 +1,7 @@
 import { IconSymbol, IconSymbolName } from "@/components/ui/icon-symbol";
 import { Slot, usePathname, useRouter } from "expo-router";
 import React, { useState } from "react";
-import { Linking, Pressable, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Linking, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 type RouteName = "index" | "explore" | "create" | "profile" | "info";
 
@@ -82,15 +82,6 @@ export default function Layout() {
               returnKeyType="search"
             />
           </View>
-
-          {/* 🧾 Google Form button */}
-          <Pressable
-            onPress={openUrl}
-            className="flex-row items-center space-x-2 active:opacity-70"
-          >
-            <Text className="text-white text-base">Google Form</Text>
-            <IconSymbol name="doc.fill" size={24} color="#fff" />
-          </Pressable>
 
           {/* 💬 Chat icon */}
           <TouchableOpacity className="mr-2 active:opacity-70">
