@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { Alert, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
 // Mock user data
 const mockUsers = [
   { email: 'test1@example.com', password: 'password123', username: 'User1' },
@@ -10,15 +11,15 @@ const mockUsers = [
 
 export default function LoginScreen() {
   const [email, setEmail] = useState<string>('');
-const [password, setPassword] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const handleLogin = () => {
     if (!email || !password) {
-    Alert.alert('Error', 'Please enter both email and password.');
-    return;
-  }
+      Alert.alert('Error', 'Please enter both email and password.');
+      return;
+    }
     const user = mockUsers.find(
-      (u) => u.email === email && u.password === password
+      u => u.email === email && u.password === password
     );
 
     if (user) {
